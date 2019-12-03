@@ -9,6 +9,9 @@ console.log(data);
 
 function newTable(data){
 
+ // remove any children from the list
+  tbody.html("");
+
 // Using the UFO dataset provided in the form of an array of JavaScript objects, write code that 
 // appends a table to your web page and then adds new rows of data for each UFO sighting.
 // Make sure you have a column for date/time, city, state, country, shape, and comment 
@@ -33,14 +36,21 @@ var button = d3.select("#filter-btn");
 
 button.on("click", function() {
 
+
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
 
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
+//   console.log(inputValue);
+
+    var filteredData = tableData.filter(ufoSight => ufoSight.datetime === inputValue);
+
+    console.log(filteredData);
+
+newTable(filteredData);
 
   // Set the span tag in the h1 element to the text that was entered in the form
-  d3.select("h1>span").text(inputValue);
+//   d3.select("h1>span").text(inputValue);
 });
