@@ -28,8 +28,8 @@ function newTable(data){
 }
 newTable(tableData);
 
-// Use a date form in your HTML document and write JavaScript code that will listen for events 
-// and search through the date/time column to find rows that match user input.
+// Using multiple input tags and/or select dropdowns, write JavaScript code so the user can to set multiple filters and 
+// search for UFO sightings using the following criteria based on the table columns:
 
 // Select the button
 var button = d3.select("#filter-btn");
@@ -43,8 +43,9 @@ button.on("click", function() {
   var inputElementCountry = d3.select("#country").property("value");
   var inputElementShape = d3.select("#shape").property("value");
 
-// Get the value property of the input element
-    var inputValue = {"datetime": inputElementDate, }
+// Get the value property of the input element   
+
+    var inputValue = {"datetime": inputElementDate, "city": inputElementCity, "state" : inputElementState, "country" : inputElementCountry, "shape" : inputElementShape };
 
     
 
